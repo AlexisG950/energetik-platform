@@ -18,7 +18,7 @@ public class MedidorUDPClient {
         System.out.print("Host destino (Rastrenergy UDP) (ej. localhost): ");
         String host = scanner.nextLine().trim();
 
-        System.out.print("Puerto destino UDP (ej. 5000): ");
+        System.out.print("Puerto destino UDP (ej. 5001): ");
         int port = Integer.parseInt(scanner.nextLine().trim());
 
         System.out.print("ID Medidor (ej. MED-IOT-101): ");

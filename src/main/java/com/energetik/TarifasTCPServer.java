@@ -24,7 +24,7 @@ public class TarifasTCPServer {
         System.out.println("==========================================================");
         System.out.println("   ENERGETIK - CONSULTA DE TARIFAS VIGENTES (TCP)         ");
         System.out.println("==========================================================");
-        System.out.print("Puerto de escucha TCP (ej. 6001): ");
+        System.out.print("Puerto de escucha TCP (ej. 5002): ");
         int port = Integer.parseInt(scanner.nextLine().trim());
 
         System.out.print("Host de PostgreSQL (ej. localhost): ");
