@@ -5,21 +5,20 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.time.Instant;
 import java.util.Scanner;
-
 import org.json.JSONObject;
 
 public class MedidorUDPClient {
     public static void main(String[] args) {
+        
+        String host = getEnvOrDefault("SERVER_HOST", "localhost");
+        int port = Integer.parseInt(getEnvOrDefault("UDP_PORT", "5001"));
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("==========================================================");
         System.out.println("   ENERGETIK - SIMULADOR MEDIDOR INTELIGENTE IOT (UDP)    ");
         System.out.println("==========================================================");
-        System.out.print("Host destino (Rastrenergy UDP) (ej. localhost): ");
-        String host = scanner.nextLine().trim();
-
-        System.out.print("Puerto destino UDP (ej. 5001): ");
-        int port = Integer.parseInt(scanner.nextLine().trim());
+        System.out.println("Destino configurado: " + host + ":" + port);
 
         System.out.print("ID Medidor (ej. MED-IOT-101): ");
         String idMedidor = scanner.nextLine().trim();
@@ -48,5 +47,10 @@ public class MedidorUDPClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static String getEnvOrDefault(String key, String defaultValue) {
+        String value = System.getenv(key);
+        return (value != null && !value.isBlank()) ? value : defaultValue;
     }
 }
